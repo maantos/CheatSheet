@@ -13,3 +13,6 @@
   - use MySql client to connect to db
     - mysql -h 172.17.0.2 -P 3306 --protocol=tcp -u root -p
 
+
+TROUBLESHOOTING:
+  - If connection hang, then you should try exposing some port. (This seemed to be a problem)
