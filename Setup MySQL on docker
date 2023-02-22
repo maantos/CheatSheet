@@ -5,7 +5,8 @@
   - create a folder for database files 
       - mkdri mysql-data
   - Create MySQL Server container from the image
-    - docker run --name mysql-server --volume=/home/<your_path>/mysql-data:/var/lib/mysql -d mysql/mysql-server:latest
+    - A) docker run --name mysql-server --volume=/home/<your_path>/mysql-data:/var/lib/mysql -d mysql/mysql-server:latest
+    - B) docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
   - Use docker inspect <container_name> to find IP_Addr
     - docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>
   - Use docker logs <container_name> to find root password
