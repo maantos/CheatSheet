@@ -1,0 +1,14 @@
+#Here is a simple instruction how to configure local MySql database using docker.
+
+1. Pull MySql Server Docker Image
+  - docker pull mysql/mysql-server:latest
+  - create a folder for database files 
+      - mkdri mysql-data
+  - Create MySQL Server container from the image
+    - docker run --name mysql-server --volume=/home/<your_path>/mysql-data:/var/lib/mysql -d mysql/mysql-server:latest
+  - Use docker inspect <container_name> to find IP_Addr
+    - docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>
+  - Use docker logs <container_name> to find root password
+  - use MySql client to connect to db
+    - mysql -h 172.17.0.2 -P 3306 --protocol=tcp -u root -p
+
